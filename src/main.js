@@ -1,6 +1,6 @@
 import k from './kaboom'
-import Game from './scenes/Game'
+import Title from './scenes/Title'
 
-k.scene("game", Game)
+k.scene("title", Title)
 
-k.go("game")
+k.go("title")
