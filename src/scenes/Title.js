@@ -1,7 +1,6 @@
 import k from '../kaboom'
 
 export default function Title () {
-  console.log("game started")
   k.add([
     text("Ghostie"),
     pos(width() / 2, height() / 2),
@@ -15,4 +14,8 @@ export default function Title () {
     pos(width() / 2, height() / 1.5),
     origin("center")
   ])
+
+  k.keyPress("space", () => {
+    k.go("game")
+  })
 }

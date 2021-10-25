@@ -4400,13 +4400,34 @@ var _kaboom = _interopRequireDefault(require("../kaboom"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Title() {
-  console.log("game started");
-
   _kaboom.default.add([text("Ghostie"), pos(width() / 2, height() / 2), origin("center")]);
 
   _kaboom.default.add([text("By Shujaat Azim", {
     size: 28
   }), pos(width() / 2, height() / 1.5), origin("center")]);
+
+  _kaboom.default.keyPress("space", function () {
+    _kaboom.default.go("game");
+  });
+}
+},{"../kaboom":"kaboom.js"}],"scenes/Game.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Game;
+
+var _kaboom = _interopRequireDefault(require("../kaboom"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Game() {
+  _kaboom.default.add([text("Game!"), pos(width() / 2, height() / 2), origin("center")]);
+
+  _kaboom.default.keyPress("escape", function () {
+    _kaboom.default.go("title");
+  });
 }
 },{"../kaboom":"kaboom.js"}],"main.js":[function(require,module,exports) {
 "use strict";
@@ -4415,12 +4436,16 @@ var _kaboom = _interopRequireDefault(require("./kaboom"));
 
 var _Title = _interopRequireDefault(require("./scenes/Title"));
 
+var _Game = _interopRequireDefault(require("./scenes/Game"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _kaboom.default.scene("title", _Title.default);
 
+_kaboom.default.scene("game", _Game.default);
+
 _kaboom.default.go("title");
-},{"./kaboom":"kaboom.js","./scenes/Title":"scenes/Title.js"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./kaboom":"kaboom.js","./scenes/Title":"scenes/Title.js","./scenes/Game":"scenes/Game.js"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -4448,7 +4473,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51944" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54034" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
