@@ -1,11 +1,6 @@
 import k from '../kaboom'
 
 export default function Title () {
-  k.loadSprite("ghostie", "../ghostie.png");
-  k.add([
-    sprite("ghostie"),
-    pos(80, 40)
-  ])
   
   k.add([
     text("Ghostie"),
@@ -19,6 +14,13 @@ export default function Title () {
     }),
     pos(width() / 2, height() / 1.5),
     origin("center")
+  ])
+
+  const player = k.add([
+    k.sprite("tiles", {
+      frame: 300
+    }),
+    k.pos(80, 40)
   ])
 
   k.keyPress("space", () => {
