@@ -1,6 +1,7 @@
 import k from '../kaboom'
 
 export default function Game () {
+
   k.add([
     text("Game!"),
     pos(width() / 2, height() / 2),
