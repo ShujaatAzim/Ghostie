@@ -4400,15 +4400,13 @@ var _kaboom = _interopRequireDefault(require("../kaboom"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Title() {
+  _kaboom.default.add([sprite("ghostie"), pos(80, 40), scale(2)]);
+
   _kaboom.default.add([text("Ghostie"), pos(width() / 2, height() / 2), origin("center")]);
 
   _kaboom.default.add([text("By Shujaat Azim", {
     size: 28
   }), pos(width() / 2, height() / 1.5), origin("center")]);
-
-  var player = _kaboom.default.add([_kaboom.default.sprite("tiles", {
-    frame: 300
-  }), _kaboom.default.pos(80, 40)]);
 
   _kaboom.default.keyPress("space", function () {
     _kaboom.default.go("game");
@@ -4444,11 +4442,6 @@ var _Game = _interopRequireDefault(require("./scenes/Game"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_kaboom.default.loadSprite("tiles", "./tilemap.png", {
-  sliceX: 20,
-  sliceY: 20
-});
-
 _kaboom.default.scene("title", _Title.default);
 
 _kaboom.default.scene("game", _Game.default);
@@ -4482,7 +4475,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57502" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63428" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
